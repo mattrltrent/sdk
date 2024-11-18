@@ -6,37 +6,37 @@ export * from './common'
 
 export declare namespace console {
   //@ts-ignore valid in AS
-  @external('env', 'console.log')
+  @external('env', 'log')
   function log(arg0: String): void
   //@ts-ignore valid in AS
-  @external('env', 'console.logNumber')
+  @external('env', 'logNumber')
   function logNumber(arg0: number): void
   //@ts-ignore valid in AS
-  @external('env', 'console.logBool')
+  @external('env', 'logBool')
   function logBool(arg0: bool): void
   //@ts-ignore valid in AS
-  @external('env', 'console.logUint8Array')
+  @external('env', 'logUint8Array')
   function logUint8Array(arg0: Uint8Array): void
 }
 
 export declare namespace db {
   //@ts-ignore valid in AS
-  @external('env', 'db.setObject')
+  @external('env', 'setObject')
   function setObject(key: String, val: string | null): void
   //@ts-ignore valid in AS
-  @external('env', 'db.getObject')
+  @external('env', 'getObject')
   function getObject(key: String): string
 }
 
 export declare namespace system {
 
   //@ts-ignore
-  @external('env', 'system.getEnv')
+  @external('env', 'getEnv')
   function getEnv(argv0: string): string
   // TODO this should also return null if `argv0` is not in the env
 
   //@ts-ignore
-  @external('env', 'system.call')
+  @external('env', 'call')
   function call(name: string, params: string): string
 }
 
