@@ -28,7 +28,7 @@ export declare namespace db {
   function getObject(key: String): string
 }
 
-export declare namespace SystemAPI {
+export declare namespace system {
 
   //@ts-ignore
   @external('env', 'system.getEnv')
@@ -52,7 +52,7 @@ export class ENV_DEFINITION {
 } 
 
 export function getEnv(): ENV_DEFINITION {
-  const str =  SystemAPI.getEnv('msg.required_auths');
+  const str =  system.getEnv('msg.required_auths');
   const arr = <JSON.Arr>JSON.parse(str)
   const fullArray = arr.valueOf()
   let itArray: Array<string> = []
@@ -63,14 +63,14 @@ export function getEnv(): ENV_DEFINITION {
     }
   }
   return {
-    anchor_id: SystemAPI.getEnv('anchor.id'),
-    anchor_height: I64.parseInt(SystemAPI.getEnv('anchor.height')),
-    anchor_timestamp: I64.parseInt(SystemAPI.getEnv('anchor.timestamp')),
-    anchor_block: SystemAPI.getEnv('anchor.block'),
-    msg_sender: SystemAPI.getEnv('msg.sender'),
+    anchor_id: system.getEnv('anchor.id'),
+    anchor_height: I64.parseInt(system.getEnv('anchor.height')),
+    anchor_timestamp: I64.parseInt(system.getEnv('anchor.timestamp')),
+    anchor_block: system.getEnv('anchor.block'),
+    msg_sender: system.getEnv('msg.sender'),
     msg_required_auths: itArray,
-    tx_origin: SystemAPI.getEnv('tx.origin'),
-    contract_id: SystemAPI.getEnv('contract_id')
+    tx_origin: system.getEnv('tx.origin'),
+    contract_id: system.getEnv('contract_id')
   }
 }
 
