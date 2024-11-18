@@ -6,37 +6,37 @@ export * from './common'
 
 export declare namespace console {
   //@ts-ignore valid in AS
-  @external('sdk', 'console.log')
+  @external('env', 'console.log')
   function log(arg0: String): void
   //@ts-ignore valid in AS
-  @external('sdk', 'console.logNumber')
+  @external('env', 'console.logNumber')
   function logNumber(arg0: number): void
   //@ts-ignore valid in AS
-  @external('sdk', 'console.logBool')
+  @external('env', 'console.logBool')
   function logBool(arg0: bool): void
   //@ts-ignore valid in AS
-  @external('sdk', 'console.logUint8Array')
+  @external('env', 'console.logUint8Array')
   function logUint8Array(arg0: Uint8Array): void
 }
 
 export declare namespace db {
   //@ts-ignore valid in AS
-  @external('sdk', 'db.setObject')
+  @external('env', 'db.setObject')
   function setObject(key: String, val: string | null): void
   //@ts-ignore valid in AS
-  @external('sdk', 'db.getObject')
+  @external('env', 'db.getObject')
   function getObject(key: String): string
 }
 
 export declare namespace SystemAPI {
 
   //@ts-ignore
-  @external('sdk', 'system.getEnv')
+  @external('env', 'system.getEnv')
   function getEnv(argv0: string): string
   // TODO this should also return null if `argv0` is not in the env
 
   //@ts-ignore
-  @external('sdk', 'system.call')
+  @external('env', 'system.call')
   function call(name: string, params: string): string
 }
 
