@@ -31,7 +31,7 @@ export declare namespace db {
 export declare namespace system {
 
   //@ts-ignore
-  @external('sdk', 'getEnv')
+  @external('sdk', 'system.getEnv')
   function getEnv(argv0: string): string
   // TODO this should also return null if `argv0` is not in the env
 
