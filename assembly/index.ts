@@ -6,16 +6,16 @@ export * from './common'
 
 export declare namespace console {
   //@ts-ignore valid in AS
-  @external('sdk', 'log')
+  @external('sdk', 'console.log')
   function log(arg0: string): void
   //@ts-ignore valid in AS
-  @external('sdk', 'logNumber')
+  @external('sdk', 'console.logNumber')
   function logNumber(arg0: number): void
   //@ts-ignore valid in AS
-  @external('sdk', 'logBool')
+  @external('sdk', 'console.logBool')
   function logBool(arg0: bool): void
   //@ts-ignore valid in AS
-  @external('sdk', 'logUint8Array')
+  @external('sdk', 'console.logUint8Array')
   function logUint8Array(arg0: Uint8Array): void
 }
 
