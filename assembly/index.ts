@@ -9,13 +9,13 @@ export declare namespace console {
   @external('sdk', 'log')
   function log(arg0: string): void
   //@ts-ignore valid in AS
-  @external('sdk', 'logNumber')
+  @external('sdk', 'console.logNumber')
   function logNumber(arg0: number): void
   //@ts-ignore valid in AS
-  @external('sdk', 'logBool')
+  @external('sdk', 'console.logBool')
   function logBool(arg0: bool): void
   //@ts-ignore valid in AS
-  @external('sdk', 'logUint8Array')
+  @external('sdk', 'console.logUint8Array')
   function logUint8Array(arg0: Uint8Array): void
 }
 
@@ -24,7 +24,7 @@ export declare namespace db {
   @external('sdk', 'setObject')
   function setObject(key: string, val: string | null): void
   //@ts-ignore valid in AS
-  @external('sdk', 'getObject')
+  @external('sdk', 'db.getObject')
   function getObject(key: string): string
 }
 
@@ -36,7 +36,7 @@ export declare namespace system {
   // TODO this should also return null if `argv0` is not in the env
 
   //@ts-ignore
-  @external('sdk', 'call')
+  @external('sdk', 'system.call')
   function call(name: string, params: string): string
 }
 
