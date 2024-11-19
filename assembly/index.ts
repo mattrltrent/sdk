@@ -6,37 +6,37 @@ export * from './common'
 
 export declare namespace console {
   //@ts-ignore valid in AS
-  @external('env', 'log')
-  function log(arg0: String): void
+  @external('sdk', 'console.log')
+  function log(arg0: string): void
   //@ts-ignore valid in AS
-  @external('env', 'logNumber')
+  @external('sdk', 'console.logNumber')
   function logNumber(arg0: number): void
   //@ts-ignore valid in AS
-  @external('env', 'logBool')
+  @external('sdk', 'console.logBool')
   function logBool(arg0: bool): void
   //@ts-ignore valid in AS
-  @external('env', 'logUint8Array')
+  @external('sdk', 'console.logUint8Array')
   function logUint8Array(arg0: Uint8Array): void
 }
 
 export declare namespace db {
   //@ts-ignore valid in AS
-  @external('env', 'setObject')
-  function setObject(key: String, val: string | null): void
+  @external('sdk', 'db.setObject')
+  function setObject(key: string, val: string | null): void
   //@ts-ignore valid in AS
-  @external('env', 'getObject')
-  function getObject(key: String): string
+  @external('sdk', 'db.getObject')
+  function getObject(key: string): string
 }
 
-export declare namespace system {
+export declare namespace SystemAPI {
 
   //@ts-ignore
-  @external('env', 'getEnv')
+  @external('sdk', 'system.getEnv')
   function getEnv(argv0: string): string
   // TODO this should also return null if `argv0` is not in the env
 
   //@ts-ignore
-  @external('env', 'call')
+  @external('sdk', 'system.call')
   function call(name: string, params: string): string
 }
 
@@ -52,7 +52,7 @@ export class ENV_DEFINITION {
 } 
 
 export function getEnv(): ENV_DEFINITION {
-  const str =  system.getEnv('msg.required_auths');
+  const str =  SystemAPI.getEnv('msg.required_auths');
   const arr = <JSON.Arr>JSON.parse(str)
   const fullArray = arr.valueOf()
   let itArray: Array<string> = []
@@ -63,14 +63,14 @@ export function getEnv(): ENV_DEFINITION {
     }
   }
   return {
-    anchor_id: system.getEnv('anchor.id'),
-    anchor_height: I64.parseInt(system.getEnv('anchor.height')),
-    anchor_timestamp: I64.parseInt(system.getEnv('anchor.timestamp')),
-    anchor_block: system.getEnv('anchor.block'),
-    msg_sender: system.getEnv('msg.sender'),
+    anchor_id: SystemAPI.getEnv('anchor.id'),
+    anchor_height: I64.parseInt(SystemAPI.getEnv('anchor.height')),
+    anchor_timestamp: I64.parseInt(SystemAPI.getEnv('anchor.timestamp')),
+    anchor_block: SystemAPI.getEnv('anchor.block'),
+    msg_sender: SystemAPI.getEnv('msg.sender'),
     msg_required_auths: itArray,
-    tx_origin: system.getEnv('tx.origin'),
-    contract_id: system.getEnv('contract_id')
+    tx_origin: SystemAPI.getEnv('tx.origin'),
+    contract_id: SystemAPI.getEnv('contract_id')
   }
 }
 
@@ -100,7 +100,7 @@ export class TxOutput {
    * @param str 
    * 
    */
-  msg(str: String): this {
+  msg(str: string): this {
       this.json.set('msg', str)
       return this;
   }
@@ -130,10 +130,10 @@ export class TxOutput {
 
   /**
    * Call when finished with output. 
-   * String must be returned to the parent 
-   * @returns {String}
+   * string must be returned to the parent 
+   * @returns {string}
    */
-  done(): String {
+  done(): string {
       return this.json.stringify()
   }
 }
