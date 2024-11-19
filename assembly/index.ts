@@ -9,34 +9,34 @@ export declare namespace console {
   @external('sdk', 'log')
   function log(arg0: string): void
   //@ts-ignore valid in AS
-  @external('sdk', 'console.logNumber')
+  @external('sdk', 'logNumber')
   function logNumber(arg0: number): void
   //@ts-ignore valid in AS
-  @external('sdk', 'console.logBool')
+  @external('sdk', 'logBool')
   function logBool(arg0: bool): void
   //@ts-ignore valid in AS
-  @external('sdk', 'console.logUint8Array')
+  @external('sdk', 'logUint8Array')
   function logUint8Array(arg0: Uint8Array): void
 }
 
 export declare namespace db {
   //@ts-ignore valid in AS
-  @external('sdk', 'db.setObject')
+  @external('sdk', 'setObject')
   function setObject(key: string, val: string | null): void
   //@ts-ignore valid in AS
-  @external('sdk', 'db.getObject')
+  @external('sdk', 'getObject')
   function getObject(key: string): string
 }
 
 export declare namespace SystemAPI {
 
   //@ts-ignore
-  @external('sdk', 'system.getEnv')
+  @external('sdk', 'getEnv')
   function getEnv(argv0: string): string
   // TODO this should also return null if `argv0` is not in the env
 
   //@ts-ignore
-  @external('sdk', 'system.call')
+  @external('sdk', 'call')
   function call(name: string, params: string): string
 }
 
