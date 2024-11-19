@@ -6,7 +6,7 @@ export * from './common'
 
 export declare namespace console {
   //@ts-ignore valid in AS
-  @external('sdk', 'console.log')
+  @external('sdk', 'log')
   function log(arg0: string): void
   //@ts-ignore valid in AS
   @external('sdk', 'console.logNumber')
